@@ -1,0 +1,1 @@
+{"resources":{"Scripts/Roles_permissions.sql":{"default-datasource":"postgres-jdbc-193e01d8d6c-210b831fa2d29fb0","default-catalog":"postgres","default-schema":"public"},"Scripts/Script.sql":{"default-schema":"public","default-datasource":"postgres-jdbc-193e01d8d6c-210b831fa2d29fb0","default-catalog":"postgres"}}}

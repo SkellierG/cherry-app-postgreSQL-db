@@ -1,0 +1,46 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-193e01d8d6c-210b831fa2d29fb0": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "postgres",
+			"save-password": true,
+			"configuration": {
+				"host": "aws-0-us-west-1.pooler.supabase.com",
+				"port": "5432",
+				"database": "postgres",
+				"url": "jdbc:postgresql://aws-0-us-west-1.pooler.supabase.com:5432/postgres",
+				"configurationType": "MANUAL",
+				"home": "postgresql_client",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-chosen-role@": ""
+				},
+				"auth-model": "native"
+			},
+			"custom-properties": {
+				"valueManager.auth.users:id": "plaintext"
+			}
+		}
+	},
+	"virtual-models": {"postgres-jdbc-193e01d8d6c-210b831fa2d29fb0":{"postgres":{"public":{"@properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202501130053\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"postgres-jdbc-193e01d8d6c-210b831fa2d29fb0\"\u003e\u003centity id\u003d\"1\" name\u003d\"centro_frutal\" fq-name\u003d\"public.centro_frutal\" order\u003d\"0\" x\u003d\"482\" y\u003d\"442\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"companies\" fq-name\u003d\"public.companies\" order\u003d\"1\" x\u003d\"265\" y\u003d\"40\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"frutos\" fq-name\u003d\"public.frutos\" order\u003d\"2\" x\u003d\"482\" y\u003d\"646\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"invitations\" fq-name\u003d\"public.invitations\" order\u003d\"3\" x\u003d\"40\" y\u003d\"1064\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"5\" name\u003d\"muestras\" fq-name\u003d\"public.muestras\" order\u003d\"4\" x\u003d\"265\" y\u003d\"544\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"6\" name\u003d\"permissions\" fq-name\u003d\"public.permissions\" order\u003d\"5\" x\u003d\"265\" y\u003d\"752\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"7\" name\u003d\"previos\" fq-name\u003d\"public.previos\" order\u003d\"6\" x\u003d\"265\" y\u003d\"340\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"8\" name\u003d\"previos_companies\" fq-name\u003d\"public.previos_companies\" order\u003d\"7\" x\u003d\"40\" y\u003d\"214\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"9\" name\u003d\"previos_muestras\" fq-name\u003d\"public.previos_muestras\" order\u003d\"8\" x\u003d\"40\" y\u003d\"442\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"10\" name\u003d\"profiles\" fq-name\u003d\"public.profiles\" order\u003d\"9\" x\u003d\"265\" y\u003d\"1064\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"11\" name\u003d\"role_permissions\" fq-name\u003d\"public.role_permissions\" order\u003d\"10\" x\u003d\"40\" y\u003d\"752\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"12\" name\u003d\"roles\" fq-name\u003d\"public.roles\" order\u003d\"11\" x\u003d\"265\" y\u003d\"908\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"13\" name\u003d\"user_roles\" fq-name\u003d\"public.user_roles\" order\u003d\"12\" x\u003d\"40\" y\u003d\"908\"\u003e\u003cpath name\u003d\"public\"/\u003e\u003cpath name\u003d\"postgres\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"muestras_centro_frutal_fk\" fq-name\u003d\"public.muestras.muestras_centro_frutal_fk\" type\u003d\"fk\" pk-ref\u003d\"1\" fk-ref\u003d\"5\"/\u003e\u003crelation name\u003d\"previos_companies_companies_fk\" fq-name\u003d\"public.previos_companies.previos_companies_companies_fk\" type\u003d\"fk\" pk-ref\u003d\"2\" fk-ref\u003d\"8\"/\u003e\u003crelation name\u003d\"muestras_frutos_fk\" fq-name\u003d\"public.muestras.muestras_frutos_fk\" type\u003d\"fk\" pk-ref\u003d\"3\" fk-ref\u003d\"5\"/\u003e\u003crelation name\u003d\"previos_muestras_muestras_fk\" fq-name\u003d\"public.previos_muestras.previos_muestras_muestras_fk\" type\u003d\"fk\" pk-ref\u003d\"5\" fk-ref\u003d\"9\"/\u003e\u003crelation name\u003d\"role_permissions_permission_id_fkey\" fq-name\u003d\"public.role_permissions.role_permissions_permission_id_fkey\" type\u003d\"fk\" pk-ref\u003d\"6\" fk-ref\u003d\"11\"/\u003e\u003crelation name\u003d\"previos_companies_previos_fk\" fq-name\u003d\"public.previos_companies.previos_companies_previos_fk\" type\u003d\"fk\" pk-ref\u003d\"7\" fk-ref\u003d\"8\"/\u003e\u003crelation name\u003d\"previos_muestras_previos_fk\" fq-name\u003d\"public.previos_muestras.previos_muestras_previos_fk\" type\u003d\"fk\" pk-ref\u003d\"7\" fk-ref\u003d\"9\"/\u003e\u003crelation name\u003d\"role_permissions_role_id_fkey\" fq-name\u003d\"public.role_permissions.role_permissions_role_id_fkey\" type\u003d\"fk\" pk-ref\u003d\"12\" fk-ref\u003d\"11\"/\u003e\u003crelation name\u003d\"user_roles_role_id_fkey\" fq-name\u003d\"public.user_roles.user_roles_role_id_fkey\" type\u003d\"fk\" pk-ref\u003d\"12\" fk-ref\u003d\"13\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}}}}},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}
