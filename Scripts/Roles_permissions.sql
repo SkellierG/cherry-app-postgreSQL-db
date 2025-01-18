@@ -3,22 +3,20 @@ CREATE TABLE IF NOT EXISTS public.roles (
     name TEXT NOT null,
     company_id UUID references public.companies(id) on delete cascade
 );
-
--- DROP TABLE public.roles;
+-- DROP TABLE public.roles CASCADE;
 
 CREATE TABLE IF NOT EXISTS public.permissions (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL UNIQUE -- Ej: "sys:create:group", "org:invite:member"
 );
 
--- DROP TABLE public.permissions;
+-- DROP TABLE public.permissions CASCADE;
 
 CREATE TABLE IF NOT EXISTS public.role_permissions (
     role_id INT REFERENCES public.roles(id) ON DELETE CASCADE,
     permission_id INT REFERENCES public.permissions(id) ON DELETE CASCADE,
     PRIMARY KEY (role_id, permission_id)
 );
-
 -- DROP TABLE public.role_permissions;
 
 CREATE TABLE IF NOT EXISTS public.user_roles (
@@ -26,7 +24,6 @@ CREATE TABLE IF NOT EXISTS public.user_roles (
     role_id INT REFERENCES public.roles(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, role_id)
 );
-
 -- DROP TABLE public.user_roles;
 
 -- DROP ALL TABLES:
@@ -59,4 +56,14 @@ CREATE TABLE IF NOT EXISTS public.user_roles (
 --JOIN roles r ON ur.role_id = r.id
 --WHERE ur.user_id = $1
 --AND r.company_id = $3;
+
+GRANT SELECT ON public.user_roles TO supabase_auth_admin;
+GRANT SELECT ON public.roles TO supabase_auth_admin;
+GRANT SELECT ON public.role_permissions TO supabase_auth_admin;
+GRANT SELECT ON public.permissions TO supabase_auth_admin;
+GRANT SELECT ON public.companies TO supabase_auth_admin;
+grant execute on function public.custom_access_token_hook to supabase_auth_admin;
+grant usage on schema public to supabase_auth_admin;
+grant usage on schema auth to supabase_auth_admin;
+GRANT SELECT ON auth.users TO supabase_auth_admin;
 

@@ -1,0 +1,12 @@
+alter table public.profiles enable row level security;
+alter table public.companies enable row level security;
+alter table public.company_previos enable row level security;
+alter table public.previos enable row level security;
+alter table public.previo_muestras enable row level security;
+alter table public.muestras enable row level security;
+alter table public.centro_frutal enable row level security;
+alter table public.frutos enable row level security;
+alter table public.roles enable row level security;
+alter table public.role_permissions enable row level security;
+alter table public.permissions enable row level security;
+alter table public.user_roles enable row level security;
