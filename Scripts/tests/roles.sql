@@ -86,3 +86,24 @@ FROM information_schema.role_table_grants
 WHERE table_schema = 'public'
   AND table_name IN ('roles');
 
+ SELECT * 
+FROM public.user_roles ur
+INNER JOIN public.roles r ON ur.role_id = r.id
+WHERE ur.user_id = 'f1ab3c92-52e8-4cc7-a198-0bd96e7d69cc';
+
+SELECT *
+FROM public.role_permissions rp
+INNER JOIN public.permissions p ON rp.permission_id = p.id
+WHERE rp.role_id IN (
+    SELECT role_id 
+    FROM public.user_roles 
+    WHERE user_id = 'f1ab3c92-52e8-4cc7-a198-0bd96e7d69cc'
+);
+
+SELECT *
+FROM pg_roles
+
+SET ROLE supabase_auth_admin;
+RESET ROLE;
+SET ROLE postgres;
+

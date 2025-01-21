@@ -13,6 +13,8 @@ DECLARE
 BEGIN
     claims := event->'claims';
 
+	RAISE NOTICE 'Claims: %', claims;
+
     WITH role_data AS (
         SELECT
             r.id AS role_id,
@@ -52,11 +54,21 @@ BEGIN
         companies_data
     FROM aggregated_roles, aggregated_companies;
 
-    claims := JSONB_SET(claims, '{roles}', COALESCE(to_jsonb(roles_data)::JSONB, '[]'::JSONB));
-    claims := JSONB_SET(claims, '{joined_companies}', COALESCE(to_jsonb(companies_data)::JSONB, '[]'::JSONB));
+	RAISE NOTICE 'Roles data: %', roles_data;
+	RAISE NOTICE 'Companies data: %', companies_data;
+
+    claims := JSONB_SET(claims, '{roles}', COALESCE(roles_data, '[]'::JSONB));
+    claims := JSONB_SET(claims, '{joined_companies}', COALESCE(companies_data, '[]'::JSONB));
 
     event := JSONB_SET(event, '{claims}', claims);
 
     RETURN event;
 END;
 $$;
+
+GRANT USAGE ON SCHEMA public TO supabase_auth_admin;
+GRANT EXECUTE ON FUNCTION public.custom_access_token_hook TO supabase_auth_admin;
+REVOKE EXECUTE ON FUNCTION public.custom_access_token_hook FROM authenticated, anon, public;
+
+GRANT SELECT ON public.user_roles, public.roles, public.role_permissions, public.permissions TO supabase_auth_admin;
+REVOKE SELECT ON public.user_roles, public.roles, public.role_permissions, public.permissions FROM authenticated, anon, public;
