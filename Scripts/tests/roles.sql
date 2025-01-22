@@ -107,3 +107,4 @@ SET ROLE supabase_auth_admin;
 RESET ROLE;
 SET ROLE postgres;
 
+SELECT current_setting('request.jwt.claim.user_id');

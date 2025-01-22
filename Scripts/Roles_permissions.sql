@@ -1,19 +1,19 @@
 CREATE TABLE IF NOT EXISTS public.roles (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY UNIQUE,
     name TEXT NOT null,
     company_id UUID references public.companies(id) on delete cascade
 );
 -- DROP TABLE public.roles CASCADE;
 
 CREATE TABLE IF NOT EXISTS public.permissions (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY UNIQUE,
     name TEXT NOT NULL UNIQUE -- Ej: "sys:create:group", "org:invite:member"
 );
 
 -- DROP TABLE public.permissions CASCADE;
 
 CREATE TABLE IF NOT EXISTS public.role_permissions (
-    role_id INT REFERENCES public.roles(id) ON DELETE CASCADE,
+    role_id INT REFERENCES public.roles(id) ON DELETE CASCADE NOT NULL,
     permission_id INT REFERENCES public.permissions(id) ON DELETE CASCADE,
     PRIMARY KEY (role_id, permission_id)
 );

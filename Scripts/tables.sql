@@ -1,7 +1,7 @@
 -- DROP TABLE public.profiles;
 CREATE TABLE IF NOT EXISTS public.profiles (
 	id UUID DEFAULT gen_random_uuid() NOT NULL,
-	user_id UUID NOT NULL,
+	user_id UUID NOT NULL UNIQUE,
 	name VARCHAR(255) NULL,
 	lastname VARCHAR(255) NULL,
 	avatar_url TEXT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS public.centro_frutal (
 
 -- DROP TABLE public.frutos;
 CREATE TABLE public.frutos (
-    id uuid NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     nivel_1 INT DEFAULT 0 NOT NULL,
     nivel_2 INT DEFAULT 0 NOT NULL,
     CONSTRAINT frutos_pk PRIMARY KEY (id)
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS public.companies (
     created_at timestamptz DEFAULT now() NOT NULL,
     updated_at timestamptz DEFAULT now() NOT NULL,
     deleted_at timestamptz,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     phone VARCHAR(255),
     CONSTRAINT companies_pk PRIMARY KEY (id)
 );
@@ -88,6 +88,6 @@ CREATE TABLE IF NOT EXISTS public.previo_muestras (
 -- DROP TABLE public.frutos cascade;
 -- DROP TABLE public.companies cascade;
 -- DROP TABLE public.previos cascade;
--- DROP TABLE public.muestras;
--- DROP TABLE public.company_previos;
--- DROP TABLE public.previo_muestras;
+-- DROP TABLE public.muestras cascade;
+-- DROP TABLE public.company_previos cascade;
+-- DROP TABLE public.previo_muestras cascade;
